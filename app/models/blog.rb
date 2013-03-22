@@ -27,7 +27,7 @@ class Blog
   end 
 
   def add_entry(entry)
-    entries << entry
+    @entries << entry
   end 
 
   private
