@@ -52,5 +52,32 @@ describe Post do
       @blog.expect :add_entry, nil, [@it]
       @it.publish
     end
+
+    describe "#pubdate" do
+      describe "before publishing" do
+        it "is blank" do
+          @it.pubdate.must_be_nil
+        end
+      end
+
+      describe "after publishing" do
+        before do
+          @clock = stub!
+          @now = DateTime.parse("2011-09-11T01:56")
+          stub(@clock).now(){@now}
+          @it.blog = stub!
+          @it.publish(@clock)
+        end
+
+        it "is a datetime" do
+          @it.pubdate.class.must_equal(DateTime)
+        end
+
+        it "is the current time" do
+          @it.pubdate.must_equal(@now)
+        end
+      end
+    end
+
   end
 end
