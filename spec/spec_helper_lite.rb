@@ -8,7 +8,7 @@ def stub_module(full_name)
   end
 end
 
-require 'rr'
-class MiniTest::Unit::TestCase
-  include RR::Adapters::MiniTest
-end
+# require 'rr'
+# class MiniTest::Unit::TestCase
+#   include RR::Adapters::MiniTest
+# end
